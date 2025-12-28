@@ -101,10 +101,7 @@ FinCopilot acts as your personal AI financial advisor, providing:
 ### Steps
 
 1. **Clone the repository**
-```bash
-git clone https://github.com/yourusername/fincopilot.git
-cd fincopilot
-```
+
 
 2. **Install dependencies**
 ```bash
@@ -196,29 +193,5 @@ firebase deploy
 - [ ] Tax estimation tools
 - [ ] Export to Excel/PDF
 
-## 👥 Team
 
-- [Team Member 1] - Full Stack Development
-- [Team Member 2] - AI/ML Integration
-- [Team Member 3] - UI/UX Design
-- [Team Member 4] - Backend & DevOps
 
-## 📄 License
-
-MIT License - feel free to use this project for learning and development.
-
-## 🙏 Acknowledgments
-
-- Google Gemini for AI capabilities
-- Firebase for infrastructure
-- The open-source community
-
-## 📞 Contact
-
-For questions or feedback, reach out to: [your-email@example.com]
-
----
-
-**Built with ❤️ for [Hackathon Name]**
-
-*Making financial literacy accessible to everyone through AI*
