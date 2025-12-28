@@ -61,10 +61,10 @@ export const UploadReceiptModal = ({ isOpen, onClose, onExtract }: UploadReceipt
     await new Promise(resolve => setTimeout(resolve, 2500));
 
     const mockExtracted: ExtractedData = {
-      merchant: "Trader Joe's",
-      amount: 67.42,
+      merchant: "Big Bazaar",
+      amount: 1847.50,
       date: new Date().toISOString().split("T")[0],
-      items: ["Organic Milk", "Sourdough Bread", "Avocados (3)", "Greek Yogurt"],
+      items: ["Organic Milk", "Whole Wheat Bread", "Vegetables", "Basmati Rice"],
       confidence: 0.94
     };
 
@@ -89,19 +89,19 @@ export const UploadReceiptModal = ({ isOpen, onClose, onExtract }: UploadReceipt
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50"
+            className="absolute inset-0 bg-background/80 backdrop-blur-sm"
             onClick={onClose}
           />
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-lg z-50"
+            className="relative w-full max-w-lg z-10"
           >
             <div className="card-elevated p-6">
               <div className="flex items-center justify-between mb-6">
@@ -118,7 +118,7 @@ export const UploadReceiptModal = ({ isOpen, onClose, onExtract }: UploadReceipt
                 <div className="space-y-4">
                   {/* Upload Zone */}
                   <div
-                    className={`border-2 border-dashed rounded-xl p-8 text-center transition-colors ${
+                    className={`border-2 border-dashed rounded-xl p-8 text-center transition-colors cursor-pointer ${
                       isDragging 
                         ? "border-primary bg-primary/5" 
                         : preview 
@@ -204,7 +204,7 @@ export const UploadReceiptModal = ({ isOpen, onClose, onExtract }: UploadReceipt
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Amount</span>
-                      <span className="font-semibold text-lg">${extractedData.amount.toFixed(2)}</span>
+                      <span className="font-semibold text-lg">₹{extractedData.amount.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">Date</span>
@@ -237,7 +237,7 @@ export const UploadReceiptModal = ({ isOpen, onClose, onExtract }: UploadReceipt
               )}
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );

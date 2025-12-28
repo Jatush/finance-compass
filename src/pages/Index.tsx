@@ -38,7 +38,7 @@ const Index = () => {
       .slice(0, 6);
   }, [transactions]);
 
-  // Calculate summary stats
+  // Calculate summary stats - Updated for Indian amounts
   const stats = useMemo(() => {
     const income = transactions
       .filter(t => t.amount > 0)
@@ -49,7 +49,7 @@ const Index = () => {
       .reduce((sum, t) => sum + Math.abs(t.amount), 0);
 
     return {
-      balance: 2847.32,
+      balance: 234587,  // Updated Indian amount
       monthlySpending: Math.round(expenses),
       monthlyIncome: Math.round(income),
       savingsRate: Math.round(((income - expenses) / income) * 100) || 0
@@ -82,55 +82,55 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-        <Header 
-          onAddTransaction={() => setIsAddModalOpen(true)}
-          onUploadReceipt={() => setIsUploadModalOpen(true)}
-        />
+      <Header 
+        onAddTransaction={() => setIsAddModalOpen(true)}
+        onUploadReceipt={() => setIsUploadModalOpen(true)}
+      />
 
-        <main className="container mx-auto px-4 py-6 max-w-7xl">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="space-y-6"
-          >
-            {/* Quick Stats */}
-            <QuickStats {...stats} />
+      <main className="container mx-auto px-4 py-6 max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-6"
+        >
+          {/* Quick Stats */}
+          <QuickStats {...stats} />
 
-            {/* Main Grid */}
-            <div className="grid lg:grid-cols-3 gap-6">
-              {/* Left Column */}
-              <div className="lg:col-span-2 space-y-6">
-                <HealthScore score={72} trend="down" change={-3} />
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  <SpendingBreakdown categorySpending={categorySpending} />
-                  <DecisionSimulator />
-                </div>
-                
-                <TransactionList transactions={transactions} />
+          {/* Main Grid */}
+          <div className="grid lg:grid-cols-3 gap-6">
+            {/* Left Column */}
+            <div className="lg:col-span-2 space-y-6">
+              <HealthScore score={72} trend="down" change={-3} />
+              
+              <div className="grid md:grid-cols-2 gap-6">
+                <SpendingBreakdown categorySpending={categorySpending} />
+                <DecisionSimulator />
               </div>
-
-              {/* Right Column */}
-              <div className="space-y-6">
-                <AIInsights />
-                <PredictiveInsights />
-              </div>
+              
+              <TransactionList transactions={transactions} />
             </div>
-          </motion.div>
-        </main>
 
-        <AddTransactionModal
-          isOpen={isAddModalOpen}
-          onClose={() => setIsAddModalOpen(false)}
-          onAdd={handleAddTransaction}
-        />
+            {/* Right Column */}
+            <div className="space-y-6">
+              <AIInsights />
+              <PredictiveInsights />
+            </div>
+          </div>
+        </motion.div>
+      </main>
 
-        <UploadReceiptModal
-          isOpen={isUploadModalOpen}
-          onClose={() => setIsUploadModalOpen(false)}
-          onExtract={handleExtractReceipt}
-        />
+      <AddTransactionModal
+        isOpen={isAddModalOpen}
+        onClose={() => setIsAddModalOpen(false)}
+        onAdd={handleAddTransaction}
+      />
+
+      <UploadReceiptModal
+        isOpen={isUploadModalOpen}
+        onClose={() => setIsUploadModalOpen(false)}
+        onExtract={handleExtractReceipt}
+      />
     </div>
   );
 };

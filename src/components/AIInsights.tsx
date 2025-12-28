@@ -19,19 +19,19 @@ const mockInsights: Insight[] = [
     type: "warning",
     title: "Dining Budget Alert",
     description: "You've spent 82% of your dining budget in just 10 days.",
-    observation: "Detected 6 food delivery transactions totaling $142.80 this week",
-    reasoning: "At current pace, you'll exceed budget by ~$180 before month end",
-    action: "Consider meal prepping or setting a daily spending limit of $15",
+    observation: "Detected 6 food delivery transactions totaling ₹11,850 this week",
+    reasoning: "At current pace, you'll exceed budget by ~₹15,000 before month end",
+    action: "Consider meal prepping or setting a daily spending limit of ₹1,200",
     timestamp: "2 hours ago"
   },
   {
     id: "2",
     type: "prediction",
     title: "Month-End Forecast",
-    description: "Projected balance: $847 (down from usual $1,200)",
-    observation: "Unusual spending spike detected on Jan 10 (AirPods: $249)",
+    description: "Projected balance: ₹70,000 (down from usual ₹99,000)",
+    observation: "Unusual spending spike detected on Jan 10 (Electronics: ₹20,700)",
     reasoning: "Large discretionary purchase combined with elevated dining expenses",
-    action: "Reduce non-essential spending by $100 to maintain target balance",
+    action: "Reduce non-essential spending by ₹8,300 to maintain target balance",
     timestamp: "4 hours ago"
   },
   {
@@ -39,7 +39,7 @@ const mockInsights: Insight[] = [
     type: "insight",
     title: "Subscription Creep Detected",
     description: "Your subscriptions have increased 25% over 3 months.",
-    observation: "Netflix, Spotify, HBO Max = $42.97/month recurring",
+    observation: "Netflix, Spotify, Prime = ₹3,550/month recurring",
     reasoning: "Multiple streaming services may have overlapping content",
     action: "Consider rotating subscriptions instead of maintaining all",
     timestamp: "1 day ago"
@@ -49,9 +49,9 @@ const mockInsights: Insight[] = [
     type: "action",
     title: "Smart Savings Opportunity",
     description: "Your grocery spending is 15% below budget this month.",
-    observation: "Only $127.54 spent vs $500 budget (74% remaining)",
+    observation: "Only ₹10,600 spent vs ₹41,500 budget (74% remaining)",
     reasoning: "Consistent pattern of under-spending in this category",
-    action: "Transfer $50 to savings while maintaining buffer",
+    action: "Transfer ₹4,100 to savings while maintaining buffer",
     timestamp: "1 day ago"
   }
 ];

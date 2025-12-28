@@ -28,7 +28,7 @@ export const DecisionSimulator = () => {
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     const purchaseAmount = parseFloat(amount);
-    const currentBalance = 2847.32;
+    const currentBalance = 234587.50; // Indian amount
     const projectedBalance = currentBalance - purchaseAmount;
     
     let recommendation: SimulationResult["recommendation"];
@@ -39,13 +39,13 @@ export const DecisionSimulator = () => {
       recommendation = "not_recommended";
       reasoning = "This purchase would put your account into overdraft. Consider waiting until your next income deposit.";
       budgetImpact = "Would exceed available balance";
-    } else if (projectedBalance < 500) {
+    } else if (projectedBalance < 50000) {
       recommendation = "risky";
       reasoning = "This purchase would leave you with a low safety buffer. Unexpected expenses could cause issues.";
       budgetImpact = "Shopping budget would be 120% exhausted";
-    } else if (purchaseAmount > 200) {
+    } else if (purchaseAmount > 20000) {
       recommendation = "risky";
-      reasoning = "Large discretionary purchase. Your month-end forecast already shows a $353 shortfall vs usual.";
+      reasoning = "Large discretionary purchase. Your month-end forecast already shows a shortfall vs usual.";
       budgetImpact = "Would reduce projected month-end balance by 35%";
     } else {
       recommendation = "safe";
@@ -106,7 +106,7 @@ export const DecisionSimulator = () => {
         <div>
           <label className="text-sm text-muted-foreground mb-2 block">Purchase Amount</label>
           <div className="relative">
-            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">$</span>
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">₹</span>
             <Input
               type="number"
               placeholder="0.00"
@@ -164,12 +164,12 @@ export const DecisionSimulator = () => {
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Current Balance</span>
-                  <span className="font-medium">${result.currentBalance.toFixed(2)}</span>
+                  <span className="font-medium">₹{result.currentBalance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">After Purchase</span>
-                  <span className={`font-medium ${result.projectedBalance < 500 ? "text-destructive" : ""}`}>
-                    ${result.projectedBalance.toFixed(2)}
+                  <span className={`font-medium ${result.projectedBalance < 50000 ? "text-destructive" : ""}`}>
+                    ₹{result.projectedBalance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}
                   </span>
                 </div>
                 <div className="flex justify-between">

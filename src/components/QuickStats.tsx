@@ -12,7 +12,7 @@ export const QuickStats = ({ balance, monthlySpending, monthlyIncome, savingsRat
   const stats = [
     {
       label: "Current Balance",
-      value: `$${balance.toLocaleString()}`,
+      value: `₹${balance.toLocaleString('en-IN')}`,
       change: "+2.4%",
       positive: true,
       icon: Wallet,
@@ -20,7 +20,7 @@ export const QuickStats = ({ balance, monthlySpending, monthlyIncome, savingsRat
     },
     {
       label: "Monthly Spending",
-      value: `$${monthlySpending.toLocaleString()}`,
+      value: `₹${monthlySpending.toLocaleString('en-IN')}`,
       change: "+12%",
       positive: false,
       icon: TrendingDown,
@@ -28,7 +28,7 @@ export const QuickStats = ({ balance, monthlySpending, monthlyIncome, savingsRat
     },
     {
       label: "Monthly Income",
-      value: `$${monthlyIncome.toLocaleString()}`,
+      value: `₹${monthlyIncome.toLocaleString('en-IN')}`,
       change: "Stable",
       positive: true,
       icon: ArrowUpRight,

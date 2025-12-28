@@ -18,8 +18,8 @@ const predictions: Prediction[] = [
     exhaustionDate: "Jan 18",
     daysRemaining: 3,
     risk: "high",
-    currentSpend: 246,
-    budget: 300
+    currentSpend: 20500,
+    budget: 25000
   },
   {
     id: "2",
@@ -27,8 +27,8 @@ const predictions: Prediction[] = [
     exhaustionDate: "Jan 25",
     daysRemaining: 10,
     risk: "medium",
-    currentSpend: 406,
-    budget: 400
+    currentSpend: 33800,
+    budget: 33000
   },
   {
     id: "3",
@@ -36,8 +36,8 @@ const predictions: Prediction[] = [
     exhaustionDate: "Feb 2",
     daysRemaining: 18,
     risk: "low",
-    currentSpend: 103,
-    budget: 200
+    currentSpend: 8500,
+    budget: 16500
   }
 ];
 
@@ -48,8 +48,8 @@ const riskConfig = {
 };
 
 export const PredictiveInsights = () => {
-  const projectedEndBalance = 847;
-  const usualEndBalance = 1200;
+  const projectedEndBalance = 70000;
+  const usualEndBalance = 99000;
   const variance = projectedEndBalance - usualEndBalance;
 
   return (
@@ -79,11 +79,11 @@ export const PredictiveInsights = () => {
         
         <div className="flex items-end gap-4">
           <div>
-            <p className="text-3xl font-display font-bold">${projectedEndBalance}</p>
+            <p className="text-3xl font-display font-bold">₹{projectedEndBalance.toLocaleString('en-IN')}</p>
             <p className="text-sm text-muted-foreground">Projected Balance</p>
           </div>
           <div className={`flex items-center gap-1 mb-1 ${variance < 0 ? "text-destructive" : "text-primary"}`}>
-            <span className="text-sm font-medium">{variance > 0 ? "+" : ""}${variance}</span>
+            <span className="text-sm font-medium">{variance > 0 ? "+" : ""}₹{Math.abs(variance).toLocaleString('en-IN')}</span>
             <span className="text-xs text-muted-foreground">vs usual</span>
           </div>
         </div>
@@ -126,9 +126,9 @@ export const PredictiveInsights = () => {
 
               <div className="text-right">
                 <p className={`font-semibold ${prediction.currentSpend > prediction.budget ? "text-destructive" : ""}`}>
-                  ${prediction.currentSpend}
+                  ₹{prediction.currentSpend.toLocaleString('en-IN')}
                 </p>
-                <p className="text-xs text-muted-foreground">of ${prediction.budget}</p>
+                <p className="text-xs text-muted-foreground">of ₹{prediction.budget.toLocaleString('en-IN')}</p>
               </div>
             </motion.div>
           );
@@ -147,7 +147,7 @@ export const PredictiveInsights = () => {
           <div>
             <p className="text-sm font-medium text-destructive">Overall Risk: Medium-High</p>
             <p className="text-sm text-muted-foreground mt-1">
-              2 budget categories at risk of exhaustion. Consider reducing discretionary spending by $150 this week.
+              2 budget categories at risk of exhaustion. Consider reducing discretionary spending by ₹12,000 this week.
             </p>
           </div>
         </div>

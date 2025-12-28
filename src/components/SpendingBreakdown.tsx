@@ -53,7 +53,7 @@ export const SpendingBreakdown = ({ categorySpending }: SpendingBreakdownProps) 
               </div>
               <div className="flex items-center gap-3">
                 <span className="text-muted-foreground">
-                  ${Math.abs(item.spent).toFixed(0)} / ${item.budget}
+                  ₹{Math.abs(item.spent).toFixed(0)} / ₹{item.budget}
                 </span>
                 <span className={`text-xs px-2 py-0.5 rounded-full ${
                   item.percentage >= 100 

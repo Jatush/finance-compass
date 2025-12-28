@@ -81,7 +81,7 @@ export const TransactionList = ({ transactions }: TransactionListProps) => {
               <p className={`font-semibold font-display ${
                 transaction.amount > 0 ? "text-positive" : "text-foreground"
               }`}>
-                {transaction.amount > 0 ? "+" : ""}${Math.abs(transaction.amount).toFixed(2)}
+                {transaction.amount > 0 ? "+" : ""}₹{Math.abs(transaction.amount).toLocaleString('en-IN', { minimumFractionDigits: 2 })}
               </p>
               {transaction.confidence && (
                 <p className="text-xs text-muted-foreground">

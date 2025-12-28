@@ -21,7 +21,7 @@ export const Header = ({ onAddTransaction, onUploadReceipt }: HeaderProps) => {
           </div>
           <div>
             <h1 className="text-xl font-display font-bold">FinCopilot</h1>
-            <p className="text-xs text-muted-foreground">AI-Powered Financial Advisor</p>
+            <p className="text-xs text-muted-foreground">AI Financial Copilot</p>
           </div>
         </div>
       </div>
